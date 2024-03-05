@@ -1,0 +1,14 @@
+http://models.gazebosim.org/
+
+1.playground（start with robocup，size to be confirmed ）circle in the centre is not suitable
+The friction, rebound coefficient and wind force and other parameters are already given
+2.SPL ball
+3.nao with ignition position controller (size is right)
+/https://fuel.ignitionrobotics.org/teste01
+
+The pitch and the goal are the wrong size. We need to model it ourself. 
+We can use Gazebo itself or blender
+
+ignition position controller
+seems like:
+[status,message] = gzjoint('set','ur10','shoulder_lift_joint','Axis','0','Angle',-pi/4);

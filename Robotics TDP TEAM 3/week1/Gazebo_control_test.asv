@@ -1,0 +1,27 @@
+ipaddress='192.168.177.129'
+rosinit(ipaddress,11311)
+
+lbr = importrobot('iiwa14.urdf')
+lbr.DataFormat = 'row'
+lbr.Gravity = [0 0 -9.80]
+
+load lbr_waypoints.mat
+cdt = 0.001
+tt = 0:cdt:5
+[qDesired,qdotDesired,qddotDesired,tt] = exampleHelperJointTrajectoryGeneration(tWaypoints,qWaypoints,tt)
+
+n = size(qDesired,1)
+tauFeedForward = zeros(n,7)
+for i = 1:n
+    tauFeedForward(i,:) = inverseDynamics(lbr,qDesired(i,:),qdotDesired(i,:),qddotDesired(i,:))
+end
+
+[jointTauPub,jtMsg] = rospublisher('/iiwa_matlab_plugin/iiwa_matlab_joint_effort')
+jointStateSub = rossubscriber('/iiwa_matlab_plugin/iiwa_matlab_joint_state')
+mdlConfigClient = rossvcclient('gazebo/set_model_configuration')
+msg = rosmessage(mdlConfigClient)
+msg.ModelName = 'mw_iiwa';
+msg.UrdfParamName = 'robot_description'
+msg.JointNames = {'mw_iiwa_joint_1', 'mw_iiwa_joint_2', 'mw_iiwa_joint_3',...
+                  'mw_iiwa_joint_4', 'mw_iiwa_joint_5', 'mw_iiwa_joint_6', 'mw_iiwa_joint_7'}
+msg.JointPositions = homeConfiguration(lbr)

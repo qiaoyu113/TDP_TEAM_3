@@ -1,0 +1,18 @@
+1.2d or 3d? Can simulink or matlab make 3d? (Gazebo、simulink、ROS)
+2.Robot speed with and without the ball
+3.Can robot intercept the ball and how
+4.Can the robot pass the ball? How to stop the ball?
+whether to calculate and then kick the ball to the designated position, 
+what is the friction coefficient of the field?
+5.How to determine the boundary? How to shoot free throws out of bounds?
+ (See the rules at about page 46)
+6.Length of play and decision rules
+7.How to judge the position of teammates and opponents?
+Should incorporate these into strategy? How to consider?
+8.How is the team strategy established?
+9.How does the goalkeeper save the ball
+10.The maximum speed of the kick
+11.Can pass continuously
+12.Action in case of a fall
+13.The extent to which we can use models or code that others already have.
+13 weeks 200 hours about 15 hours per week
