@@ -1,4 +1,3 @@
-import os
 from controller import Motion
 import math
 from enum import Enum
@@ -14,7 +13,7 @@ INITIAL_TRANSLATIONS = {
   "RED_DEF_R" : [-2.50, -1.20, 0.33],
   "RED_FW"    : [-0.80,  0.00, 0.33],
   "BLUE_GK"   : [ 4.00,  0.00, 0.33],
-  "BLUE_DEF"  : [ -3.00,  0.00, 0.33],
+  "BLUE_DEF"  : [ 3.00,  0.00, 0.33],
   "BLUE_FW_L"  : [ 1.40, -1.20, 0.33],
   "BLUE_FW_R"  : [ 1.40,  1.20, 0.33]
 }
@@ -38,10 +37,8 @@ BALL_POSITIONS = {
 
 class Motions:
   def __init__(self):
-    import os
-    print("当前工作目录:", os.getcwd())
     self.handWave = MotionBase('handWave', '../../motions/HandWave.motion')
-    self.forwards = MotionBase('forwards', '../../motions/Forwards.motion')
+    self.forwards = MotionBase('forwards', '../../motions/Forwards')
     self.forwardsSprint = MotionBase('forwardsSprint', '../../motions/ForwardsSprint.motion')
     self.forwards50 = MotionBase('forwards50', '../../motions/Forwards50.motion')
     self.backwards = MotionBase('backwards', '../../motions/Backwards.motion')
@@ -65,13 +62,8 @@ class Motions:
     self.turnRight40 = MotionBase('turnRight40', '../../motions/TurnRight40.motion')
     self.turnRight60 = MotionBase('turnRight60', '../../motions/TurnRight60.motion')
     self.standInit = MotionBase('standInit', '../../motions/StandInit.motion')
-    self.cartwheelBlock = MotionBase('cartwheelBlock', '../../motions/CartwheelBlock.motion')
 
 class MotionBase(Motion):
   def __init__(self, name, path):
-    if os.path.exists(path):
-        print("文件存在")
-    else:
-        print("文件不存在")
     super().__init__(path)
     self.name = name

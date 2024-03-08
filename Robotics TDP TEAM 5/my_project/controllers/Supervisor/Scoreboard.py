@@ -45,15 +45,15 @@ class Scoreboard:
         print("TIME OUT!")
         print(f"RESULT: RED {self.redTeamScore} - {self.blueTeamScore} BLUE")
         self.resetScoreboard()
-        supervisor.resetSimulation()
-        supervisor.stopSimulation()
+        supervisor.initializeSimulationState()
+        supervisor.pauseSimulationExecution()
       else:
         self.initialTimeSeconds = self.timeRemain_s
         self.timeStepNormalizer = 0    
         print(f"{self.timeRemainMinutes} : {self.timeRemain_s}")
 
   def checkBall(self, supervisor):
-    ballCoordinate = supervisor.getBallPosition()
+    ballCoordinate = supervisor.fetchCurrentBallPosition()
 
     if abs(ballCoordinate[0]) > 4.5:
       if abs(ballCoordinate[1]) < 1.35:
@@ -62,28 +62,28 @@ class Scoreboard:
             print("RED GOAL!")
             self.redTeamScore += 1
             print(f"RED {self.redTeamScore} - {self.blueTeamScore} BLUE")
-            supervisor.setBallPriority("B")
+            supervisor.updateBallControlPriority("B")
 
           else:
             print("BLUE GOAL!")
             self.blueTeamScore += 1
             print(f"RED {self.redTeamScore} - {self.blueTeamScore} BLUE")
-            supervisor.setBallPriority("R")
+            supervisor.updateBallControlPriority("R")
         
           self.latestGoalTime = time.time() * 1000
           # print(self.latestGoalTime)
 
         if self.latestGoalTime < (time.time() * 1000) - 5000:
           # print(time.time() * 1000)
-          supervisor.resetSimulation()
+          supervisor.initializeSimulationState()
 
       else:
         if 4.5 < ballCoordinate[0]:
-          supervisor.setBallPriority("B")
-          supervisor.setBallPosition(BALL_POSITIONS["OUT_B"])
+          supervisor.updateBallControlPriority("B")
+          supervisor.updateBallPositionOnField(BALL_POSITIONS["OUT_B"])
         else:
-          supervisor.setBallPriority("R")
-          supervisor.setBallPosition(BALL_POSITIONS["OUT_R"])
+          supervisor.updateBallControlPriority("R")
+          supervisor.updateBallPositionOnField(BALL_POSITIONS["OUT_R"])
     
     elif abs(ballCoordinate[1]) > 3:
 
@@ -93,4 +93,4 @@ class Scoreboard:
         ballCoordinate[1] = -2.4
 
       ballCoordinate[2] = 0.0798759
-      supervisor.setBallPosition(ballCoordinate)
+      supervisor.updateBallPositionOnField(ballCoordinate)

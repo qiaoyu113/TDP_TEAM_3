@@ -5,18 +5,18 @@ sceneTreePerspectives: 000000ff00000001000000030000001e000000c0000000fc010000000
 maximizedDockId: -1
 centralWidgetVisible: 1
 orthographicViewHeight: 1
-textFiles: 0 "../../../../../../../../Applications/Webots.app/Contents/projects/robots/softbank/nao/controllers/nao_soccer_player/nao_soccer_player.c"
+textFiles: 0 "../../../../../../Applications/Webots.app/Contents/projects/robots/softbank/nao/controllers/nao_soccer_player/nao_soccer_player.c"
 consoles: Console:All:All
-renderingDevicePerspectives: NAO BLUE 0:CameraBottom;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 0:CameraTop;1;1;0.024173;0
-renderingDevicePerspectives: NAO BLUE 1:CameraBottom;0;1;0.262087;0.00787402
-renderingDevicePerspectives: NAO BLUE 1:CameraTop;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 2:CameraBottom;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 2:CameraTop;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 3:CameraBottom;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 3:CameraTop;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 4:CameraBottom;0;1;0;0
-renderingDevicePerspectives: NAO BLUE 4:CameraTop;0;1;0;0
+renderingDevicePerspectives: BLUE_DEF:CameraBottom;0;1;0.262087;0.00787402
+renderingDevicePerspectives: BLUE_DEF:CameraTop;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L:CameraBottom;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L:CameraTop;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L_2:CameraBottom;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L_2:CameraTop;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L_3:CameraBottom;0;1;0;0
+renderingDevicePerspectives: BLUE_FW_L_3:CameraTop;0;1;0;0
+renderingDevicePerspectives: BLUE_GK:CameraBottom;0;1;0;0
+renderingDevicePerspectives: BLUE_GK:CameraTop;0;1;0.283715;0.0419948
 renderingDevicePerspectives: NAO RED 0:CameraBottom;0;1;0;0
 renderingDevicePerspectives: NAO RED 0:CameraTop;0;1;0;0
 renderingDevicePerspectives: NAO RED 1:CameraBottom;0;1;0;0
